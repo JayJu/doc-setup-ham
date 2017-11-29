@@ -20,14 +20,22 @@
   root    ALL=(ALL)       ALL
   ham     ALL=(ALL)       ALL
   ```
-
-4. iftop \(network 모니터링\)
+3. DNS 설정
+  ```
+  # vi /etc/resolv.conf
+  nameserver 8.8.8.8
+  ```
+4. Buld 도구 설치
+  ```
+  # yum groupinstall 'Development Tools'
+  ```
+5. iftop \(network 모니터링\)
   ```
     $ apt-get install iftop
     $ su -
     # chmod +s $(which iftop)
   ```
-5. htop \(서버 모니터링\)
+6. htop \(서버 모니터링\)
   ```
     $ apt-get install htop
     $ su -

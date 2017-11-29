@@ -5,26 +5,10 @@
     * 참고자료: [Kurento Media Server and components](https://github.com/pkgs-cloud/kurento/blob/master/README.md)
    
 ---
-1. Subscription Manager 로그인
-  ```
-  # subscription-manager register --username autoeveridcadmin  --auto-attach
-  # yum update
-  ```
-2. 사용자 추가 및 권한 설정
-  * 사용자 추가
-  ```
-  # useradd ham -m -d /home/ham
-  # passwd ham
-  ```
-  * sudoer 등록
-  ```
-  # visudo
-  ## Allow root to run any commands anywhere
-  root    ALL=(ALL)       ALL
-  ham     ALL=(ALL)       ALL
-  ```
+1. 기본 프로그램 설치 및 사용자 생성
+  * [기본 프로그램 설치 및 사용자 생성](./default/00-etc.md)
   
-3. pkgs.cloud release repository 설치(ham 으로 로그인 후 진행)
+2. pkgs.cloud release repository 설치(ham 으로 로그인 후 진행)
   * 참고자료: [pkgs.cloud Release Repository – RPM packages for RHEL / CentOS 7](https://github.com/pkgs-cloud/release)
   
   * repository package 설치
@@ -36,14 +20,14 @@
   $ yum --disablerepo="*" --enablerepo="pkgs.cloud" list available
   ```
 
-4. 확장 패키지 설치
+3. 확장 패키지 설치
   * epel package 설치
   ```
   $ sudo yum install epel-release -y
   $ yum repolist
   $ sudo yum update
   ```
-5. Kurento 패키지 & KMS 설치
+4. Kurento 패키지 & KMS 설치
   * Kurento package 설치
   ```
   $ sudo yum install kurento-release -y
@@ -56,7 +40,7 @@
   $ sudo yum install kms-filters-platedetector -y
   $ sudo yum install kms-filters-pointerdetector -y
   ```
-6. STUN 서버 등록
+5. STUN 서버 등록
   * 설정파일 위치: ``` /etc/kurento ```
   * 공개 STUN 서버 목록
     * https://gist.github.com/zziuni/3741933
@@ -66,7 +50,7 @@
   stunServerAddress=74.125.23.127
   stunServerPort=19302
   ```
-7. 방화벽 포트 오픈
+6. 방화벽 포트 오픈
   * firewall-cmd 설치
   ```
   $ sudo yum install firewalld
@@ -78,13 +62,13 @@
   $ sudo firewall-cmd --zone=public --permanent --add-port=8888/tcp
   $ sudo systemctl reload firewalld
   ```
-8. 서비스 시작/종료
+7. 서비스 시작/종료
   ``` 
   $ sudo systemctl enable kms.service
   $ sudo systemctl start kms.service
   $ sudo systemctl restart kms.service
   ``` 
-9. 로그 확인
+8. 로그 확인
   * 로그파일 위치
     * ``` /var/log/kurento ```
     * ``` /etc/sysconfig/kms ```
