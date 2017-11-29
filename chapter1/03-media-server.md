@@ -23,7 +23,8 @@
 3. 확장 패키지 설치
   * epel package 설치
   ```
-  $ sudo yum install epel-release -y
+  $ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm
+  $ sudo yum install epel-release -y <-- CentOS인 경우
   $ yum repolist
   $ sudo yum update
   ```
@@ -31,7 +32,11 @@
   * Kurento package 설치
   ```
   $ sudo yum install kurento-release -y
+  $ sudo vi /etc/yum/pluginconf.d/search-disabled-repos.conf
+  notify_only=0 으로 변경
   $ sudo yum install kms-6.6.3 -y
+  $ sudo vi /etc/yum/pluginconf.d/search-disabled-repos.conf
+  notify_only=1 으로 원복
   ```
   * 추가 패키지 설치(필요시)
   ```
