@@ -1,4 +1,4 @@
-# Kurento Media Server 설치 및 환경구성 for CentOS 7
+# Kurento Media Server 설치 및 환경구성
 
   * 설치환경
     * RHEL 7.4
