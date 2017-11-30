@@ -117,7 +117,7 @@
       ![](/img/ch1/sub2/1-2-8.png)
      
 9. 방화벽 설정
-  * [방화벽포트오픈](04-firewall.md)
+  * [방화벽포트오픈](04-firewall.md) - samba 참조
  
 ---
 * SSHFS 설정(OOS서버)

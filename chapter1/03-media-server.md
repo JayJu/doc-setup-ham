@@ -61,12 +61,9 @@
   $ sudo yum install firewalld
   $ sudo systemctl start firewalld
   ```
-  * UDP 포트 오픈
-  ```
-  $ sudo firewall-cmd --zone=public --permanent --add-port=49152-65535/udp
-  $ sudo firewall-cmd --zone=public --permanent --add-port=8888/tcp
-  $ sudo systemctl reload firewalld
-  ```
+  * TCP/UDP 포트 오픈
+    * [방화벽포트오픈](04-firewall.md) - 미디어서버 참조
+
 7. 서비스 시작/종료
   ``` 
   $ sudo systemctl enable kms.service
