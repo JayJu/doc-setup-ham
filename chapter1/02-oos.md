@@ -98,6 +98,10 @@
        * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
 
 7. [Samba설정\(공유디렉토리\)](default/05-samba.md)
+  * SMB 포트체크
+  ```
+  PS> Test-NetConnection -ComputerName 10.6.180.66 -CommonTCPPort SMB
+  ```
 
 8. URL 설정
   1) IIS 내에 Virtual Directory 구성
