@@ -1,6 +1,10 @@
 # Samba 설치 및 환경설정 (OOS에서 접근)
 
-1. filesystem 생성
+1. filesystem 생성 및 서비스계정 생성
+    ```
+    # useradd drm -m -d /home/drm
+    # passwd drm
+    ```
     ```
     $ sudo mkdir -p /hvcs/files/conference
     $ sudo chmod -R 755 /hvcs/files
@@ -9,10 +13,12 @@
 
 2. samba 설치 및 확인
     ```
-    $ sudo apt-get install -y samba
+    $ sudo yum install -y samba
     $ sudo smbd --version
-    $ sudo systemctl status smdbd
-    $ sudo systemctl status nmbd
+    $ sudo systemctl enable smb.service
+    $ sudo systemctl enable nmb.service
+    $ sudo systemctl status smb.service
+    $ sudo systemctl status nmb.service
     ```
 
 3. 환경파일 설정  
