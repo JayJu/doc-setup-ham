@@ -102,7 +102,9 @@
 8. URL 설정
   1) IIS 내에 Virtual Directory 구성
     * IIS 을 실행
-    * “op” Context를 사용. 아래와 같이 “Add Virtual Directory..”을 클릭하여 “oofs”폴더를 추가
+    * "root" 컨텍스트에 아래와 같이 “Add Virtual Directory..”을 클릭하여 “oofs”폴더를 추가
+    * 연결계정: 응용프로그램사용자
+    * 연결테스트에 "인증" 만 정상인지 확인
       ![](/img/ch1/sub2/1-2-7.png)
       
   2) OOS 상의 URL 확인
