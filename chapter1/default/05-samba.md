@@ -36,7 +36,7 @@
         #valid users = drm -> 주석처리해야함
         create mask = 0700  
         directory mode = 0700
-        
+        #[home] -> home 섹션 모두 주석처리
   $ sudo smbpasswd -a drm
   ```
   
@@ -44,6 +44,8 @@
     ```
     $ sudo systemctl restart smb.service
     $ sudo systemctl status smb.service
+    $ sudo systemctl restart nmb.service
+    $ sudo systemctl status nmb.service
     ```
         
     > ** Unit samba.service is masked.** 에러 발생 시 아래 조치
