@@ -117,29 +117,7 @@
       ![](/img/ch1/sub2/1-2-8.png)
      
 9. 방화벽 설정
-  1) 방화벽 정책 수정 - tcp:445,139 / udp:445,137,138 포트 추가
-  ```
-  $ sudo vi /etc/iptables/rules.v4
-  ```
-  
-  2) rules.v4 에 아래 내용을 추가 후 저장/닫기
-  ```
-  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 139 -j ACCEPT
-  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 445 -j ACCEPT
-  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 137 -j ACCEPT
-  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 138 -j ACCEPT
-  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 445 -j ACCEPT
-  ```
-
-  3) 방화벽 재시작
-  ```
-  $ sudo netfilter-persistent reload
-  ```
-
-  4) 방화벽 확인
-  ```
-  $ sudo iptables -L --line-numbers
-  ```
+  * [방화벽포트오픈](04-firewall.md)
  
 ---
 * SSHFS 설정(OOS서버)
