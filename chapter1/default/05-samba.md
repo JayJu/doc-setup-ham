@@ -42,7 +42,8 @@
   
 4. 서비스 재시작
     ```
-    $ sudo systemctl restart samba
+    $ sudo systemctl restart smb.service
+    $ sudo systemctl status smb.service
     ```
         
     > ** Unit samba.service is masked.** 에러 발생 시 아래 조치
