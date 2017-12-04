@@ -25,9 +25,18 @@
   * DB 패키지설치(ham 계정, 클러스터 포함되어있음)
   ```
   # su - ham
-  $ sudo yum remove mysql-libs
-  $ sudo yum remove mariadb-common.x86_64 mariadb-config.x86_64
-  $ sudo rm -rf /var/cache/yum*
-  $ yum clean all
-  $ sudo yum -y install MariaDB-server MariaDB-client MariaDB-common
+  $ sudo yum -y install MariaDB-server
+  $ su -
+  # systemctl status mysqld
+  # mysql_secure_installation
+  ## Set root password? Y
+  ## Remove anonymous users? Y
+  ## Disallow root login remotely? N
+  ## Remove test database and access to it? Y
+  ## Reload privilege tables now? Y
+  ```
+  * 복제구성 준비
+  ```
+  $ sudo yum install -y rsync lsof
+  $ sudo systemctl enable mariadb
   ```
