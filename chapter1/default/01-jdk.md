@@ -9,12 +9,12 @@
     ```
     $ sudo vi ~/.bashrc
     ## Java Home
-    export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64"
+    export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-2.b15.el7_3.x86_64"
     
     $ source ~/.bashrc
 
     $ echo $JAVA_HOME
-    /usr/lib/jvm/java-8-oracle
+    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-2.b15.el7_3.x86_64
     ```
 3. Default JDK 설정 (2개 이상 설치 된 경우)
   * 설치 목록 확인 및 변경

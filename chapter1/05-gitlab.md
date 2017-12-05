@@ -78,8 +78,13 @@
     * Profile Setting &gt; Account -&gt; username 변경  
     ![](/img/ch1/sub5/1-5-6.png)
 
-6. 프로젝트 Import (GitLab.com -> GitLabCE)
-  * [Integrate your server with GitLab.com](https://docs.gitlab.com/ee/integration/gitlab.html)
+6. 프로젝트 이관
+  * 프로젝트 Import (GitLab.com -> GitLabCE)
+    * [Integrate your server with GitLab.com](https://docs.gitlab.com/ee/integration/gitlab.html)
+  * 프로젝트 Export/Import (GitLabCE -> GitLabCE)
+    * Export/Import 시 양쪽 GitLabCE의 버전이 맞아야 함
+    * [GitLab 업그레이드](https://about.gitlab.com/update/#ubuntu)
+    * [GitLab Export/Import](https://gitlab.com/help/user/project/settings/import_export.md)
 
 7. root 비밀번호 초기화 방법
   * [How to reset your root password](https://docs.gitlab.com/ce/security/reset_root_password.html)
