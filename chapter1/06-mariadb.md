@@ -29,6 +29,7 @@
   $ sudo systemctl enable mariadb
   $ sudo systemctl start mariadb
   $ sudo systemctl status mariadb
+  $ sudo systemctl stop mariadb
   $ su -
   # mysql_secure_installation
   ## Set root password? Y
@@ -43,25 +44,67 @@
   ```
 3. Galera 마스터 노드 구성
   * server.cnf 수정
-  ```
-  $ sudo vi /etc/my.cnf.d/server.cnf
-  [galera]
-  # Mandatory settings
-  wsrep_on=ON
-  wsrep_provider=/usr/lib64/galera/libgalera_smm.so
-  wsrep_cluster_address="gcomm://10.6.180.69,10.6.180.70,10.6.180.68"
-  binlog_format=row
-  default_storage_engine=InnoDB
-  innodb_autoinc_lock_mode=2
-  # Allow server to accept connections on all interfaces.
+    * galera 섹션 추가
+    ```
+    $ sudo vi /etc/my.cnf.d/server.cnf
+    [galera]
+    # Mandatory settings
+    wsrep_on=ON
+    wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+    wsrep_cluster_address="gcomm://10.6.180.69,10.6.180.70,10.6.180.68"
+    binlog_format=row
+    default_storage_engine=InnoDB
+    innodb_autoinc_lock_mode=2
+    # Allow server to accept connections on all interfaces.
   bind-address=0.0.0.0
-  # Galera Cluster Configuration
-  wsrep_cluster_name="hamcluster1"
-
-  # Galera Synchronization Configuration
-  wsrep_sst_method=rsync
-
-  # Galera Node Configuration
-  wsrep_node_address="10.6.180.69"
-  wsrep_node_name="aehamdbp01"
+    # Galera Cluster Configuration
+    wsrep_cluster_name="hamcluster1"
+    # Galera Synchronization Configuration
+    wsrep_sst_method=rsync
+    # Galera Node Configuration
+    wsrep_node_address="10.6.180.69"
+    wsrep_node_name="aehamdbp01"
+    ```
+    * mysqld 섹션에 로그경로 추가
+    ```
+    [mysqld]
+    log_error=/var/log/mariadb.log
+    ```
+    * 더미로그 생성
+    ```
+    $ sudo touch /var/log/mariadb.log
+    $ sudo chown mysql:mysql /var/log/mariadb.log
+    ```
+4. 서비스 시작
+  * 마스터노드 클러스터 서비스 시작 및 포트확인
   ```
+  $ su -
+  # galera_new_cluster
+  # lsof -i:4567
+  COMMAND  PID  USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+  mysqld  1349 mysql   11u  IPv4 8741428      0t0  TCP *:tram (LISTEN)
+  # lsof -i:3306
+  COMMAND  PID  USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+mysqld  1349 mysql   26u  IPv4 8741444      0t0  TCP *:mysql (LISTEN)
+  ```
+  * 서비스 확인
+  ```
+  # mysql -uroot -p
+  MariaDB [(none)]> SHOW STATUS LIKE 'wsrep_cluster_size';
+  +--------------------+-------+
+  | Variable_name      | Value |
+  +--------------------+-------+
+  | wsrep_cluster_size | 1     |
+  +--------------------+-------+
+  ```
+5. 방화벽 오픈
+  * [방화벽포트오픈](04-firewall.md) - MariaDB 참조
+  * 방화벽 재시작
+  ```
+  $ sudo firewall-cmd --reload
+  ```
+  * 방화벽 확인
+  ```
+  $ sudo iptables -L --line-numbers
+  ```
+

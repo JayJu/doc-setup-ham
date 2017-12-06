@@ -126,7 +126,7 @@
   ![](/img/ch1/sub1/1-1-10.png)
   
 3. Jenkins Build Job 생성
-  GitLab의 mgerge request 를 처리할 job 생성
+  GitLab의 mgerge request 를 처리할 job 생성: "ham-build"
   * 폴더 생성
   ![](/img/ch1/sub1/1-1-11.png)
 
@@ -147,7 +147,7 @@
   > Credential 에 GitLab에 API Token 생성 하여 입력 해야 되는데 add 가 안되는 
   > 현상이 있음. 임시로 credential을 gitlab user/password form으로 생성하여 임시조치
   > ![](/img/ch1/sub1/1-1-15.png)
-  * Branch에 master -> 이후 Release로 변경예정
+  * Branch에 master -> release로 변경
   * Script Path: Jenkinsfile -> 소스에 Jenkinsfile 을 생성해여 소스레벨에서 배포스크립트를 관리하는 방식으로 진행
   ```
     #!/usr/bin/env groovy
