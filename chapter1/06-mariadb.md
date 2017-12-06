@@ -41,3 +41,27 @@
   ```
   $ sudo yum install -y rsync lsof
   ```
+3. Galera 마스터 노드 구성
+  * server.cnf 수정
+  ```
+  $ sudo vi /etc/my.cnf.d/server.cnf
+  [galera]
+  # Mandatory settings
+  wsrep_on=ON
+  wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+  wsrep_cluster_address="gcomm://10.6.180.69,10.6.180.70,10.6.180.68"
+  binlog_format=row
+  default_storage_engine=InnoDB
+  innodb_autoinc_lock_mode=2
+  # Allow server to accept connections on all interfaces.
+  bind-address=0.0.0.0
+  # Galera Cluster Configuration
+  wsrep_cluster_name="hamcluster1"
+
+  # Galera Synchronization Configuration
+  wsrep_sst_method=rsync
+
+  # Galera Node Configuration
+  wsrep_node_address="10.6.180.69"
+  wsrep_node_name="aehamdbp01"
+  ```
