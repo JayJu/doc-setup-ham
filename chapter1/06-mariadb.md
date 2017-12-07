@@ -107,4 +107,32 @@ mysqld  1349 mysql   26u  IPv4 8741444      0t0  TCP *:mysql (LISTEN)
   ```
   $ sudo iptables -L --line-numbers
   ```
+6. 노드 추가
+  * 1번 노드에서 설정 했던 server.cnf 의 [galera] 섹션의 내용 복사하여 추가노드에 붙여넣기
+  ```
+  $ sudo vi /etc/my.cnf.d/server.cnf
+  [galera]
+  ..
+  ```
+  * wsrep_node_address 와 wsrep_node_name 값 추가할 노드 정보로 수정
+  ```
+  wsrep_node_address="10.6.180.70"
+  wsrep_node_name="aehamdbp02"
+  ```
+  * mysqld 섹션에 로그경로 추가
+  ```
+  [mysqld]
+  log_error=/var/log/mariadb.log
+  ```
+  * 더미로그 생성
+  ```
+  $ sudo touch /var/log/mariadb.log
+  $ sudo chown mysql:mysql /var/log/mariadb.log
+  ```
+  * 방화벽 확인
+  * 서비스 시작
+  ```
+  $ sudo systemctl start mariadb
+  ```
+  
 
