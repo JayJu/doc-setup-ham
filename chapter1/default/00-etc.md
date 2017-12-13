@@ -37,9 +37,19 @@
   ```
 6. htop \(서버 모니터링\)
   ```
-    $ apt-get install htop
-    $ su -
-    # chmod +s $(which htop)
+    # wget dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
+    # rpm -ihv epel-release-7-11.noarch.rpm
+    # yum groupinstall "Development Tools" <-- 기 설치 했음
+    # yum install ncurses ncurses-devel
+    # wget http://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz
+    # tar xvfvz htop-2.0.2.tar.gz
+    # cd htop-2.0.2
+    # ./configure
+    # make
+    # make install
+    # cd ..
+    # rm -rf ./htop*
+    # htop
   ```
 
 
