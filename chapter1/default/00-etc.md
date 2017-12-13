@@ -31,9 +31,9 @@
   ```
 5. iftop \(network 모니터링\)
   ```
-    $ apt-get install iftop
-    $ su -
-    # chmod +s $(which iftop)
+    # wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    # rpm -ivh epel-release-latest-7.noarch.rpm
+    # yum install iftop
   ```
 6. htop \(서버 모니터링\)
   ```
