@@ -282,3 +282,10 @@
   
   * 접속 성공 확인
     ![](/img/ch1/sub1/1-1-28.png)
+7. Jenkinsfile 의 node 절에 slave 노드 지정
+  ```
+  node('slave02') {
+    stage('checkout') {
+        checkout scm
+    }
+  ```
