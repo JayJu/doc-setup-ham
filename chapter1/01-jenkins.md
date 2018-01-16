@@ -216,3 +216,34 @@
   
   * Jenkins에서 Pipeline Job 수행 되는지 확인
   ![](/img/ch1/sub1/1-1-21.png)
+
+---
+
+# Jenkins Slave 구성
+* 설치환경
+* RHEL 7.4
+* 참고자료: [How To Install Jenkins on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-16-04)
+---
+1. JDK 설치
+  * [JDK설치 및 환경설정](/chapter1/default/01-jdk.md)
+2. Gradle 설치
+  * [Gradle 설치 및 환경설정](/chapter1/default/02-gradle.md)
+
+3. 사용자 추가 및 권한 설정
+  * 사용자 추가
+  ```
+  # useradd jenkins -m -d /home/jenkins
+  # passwd jenkins
+  ```
+  * sudoer 등록
+  ```
+  # visudo
+  ```
+  * gradle profile 추가
+  ```
+  $ su - jenkins
+  $ vi ./.bashrc
+  ## gradle
+  PATH="/opt/gradle/gradle-4.0.2/bin:$PATH"
+  $ source ./.bashrc
+  ```
