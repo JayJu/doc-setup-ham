@@ -263,7 +263,11 @@
 6. Jenkins Master 관리화면에서 Slave 노드 추가
   * Jenkins Master 노드에 관리자로 로그인
   * Jenkins > Manage Jenkins > Manage Nodes 클릭
-  ![](/img/ch1/sub1/1-1-23.png)
+  
+    ![](/img/ch1/sub1/1-1-23.png)
+  * New Node 클릭
+    
+    ![](/img/ch1/sub1/1-1-24.png)
 
 
   
