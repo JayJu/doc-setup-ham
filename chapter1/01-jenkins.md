@@ -222,7 +222,7 @@
 # Jenkins Slave 구성
 * 설치환경
 * RHEL 7.4
-* 참고자료: [How To Install Jenkins on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-16-04)
+* 참고자료: [Add linux slave node in the Jenkins](https://mohitgoyal.co/2017/02/14/add-linux-slave-node-in-the-jenkins/)
 ---
 1. JDK 설치
   * [JDK설치 및 환경설정](/chapter1/default/01-jdk.md)
