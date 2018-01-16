@@ -247,3 +247,23 @@
   PATH="/opt/gradle/gradle-4.0.2/bin:$PATH"
   $ source ./.bashrc
   ```
+4. SSH Key 생성(마스터서버에 jenkins 계정으로 수행)
+  * SSH Key 생성
+  ```
+  $ cd
+  $ ssh-keygen -t rsa
+  $ (passphrase는 입력 없이 엔터)
+  $ ls .ssh
+  ```
+5. Public Key를 Slave 노드에 복사
+  * ssh key copy
+  ```
+  $ ssh-copy-id jenkins@app서버ip
+  ```
+6. Jenkins Master 관리화면에서 Slave 노드 추가
+  * Jenkins Master 노드에 관리자로 로그인
+  * Jenkins > Manage Jenkins > Manage Nodes 클릭
+  ![](/img/ch1/sub1/1-1-23.png)
+
+
+  
