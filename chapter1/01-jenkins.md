@@ -264,10 +264,21 @@
   * Jenkins Master 노드에 관리자로 로그인
   * Jenkins > Manage Jenkins > Manage Nodes 클릭
   
-    ![](/img/ch1/sub1/1-1-23.png)
+    ![](/img/ch1/sub1/1-1-22.png)
   * New Node 클릭
+    ![](/img/ch1/sub1/1-1-23.png)
     
+  * Node 명 입력, Permanent Agent 선택 후 OK
     ![](/img/ch1/sub1/1-1-24.png)
 
+  * Credentials > ADD 아래정보 입력 후 추가
+    ![](/img/ch1/sub1/1-1-25.png)
 
+  * Slave Node 정보 입력 후 Save
+    ![](/img/ch1/sub1/1-1-26.png)
+    
+  * Slave Node 로그 확인
+    ![](/img/ch1/sub1/1-1-27.png)
   
+  * 접속 성공 확인
+    ![](/img/ch1/sub1/1-1-28.png)
