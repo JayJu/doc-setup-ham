@@ -82,7 +82,7 @@
   $ sudo systemctl daemon-reload
   $ sudo systemctl restart kms
   $ ps -ef |grep kurento
-  $ cat /proc/{프로세스ID}/limits.conf
+  $ cat /proc/{프로세스ID}/limits
   ```
 
 9. 로그 확인
