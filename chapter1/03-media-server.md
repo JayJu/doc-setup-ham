@@ -37,6 +37,7 @@
   $ sudo yum install kms-6.6.3 -y
   $ sudo vi /etc/yum/pluginconf.d/search-disabled-repos.conf
   notify_only=1 으로 원복
+  $ sudo yum install lsof -y
   ```
   * 추가 패키지 설치(필요시)
   ```
@@ -83,6 +84,7 @@
   $ sudo systemctl restart kms
   $ ps -ef |grep kurento
   $ cat /proc/{프로세스ID}/limits
+  $ lsof -p {프로세스ID} |wc -l
   ```
 
 9. 로그 확인
