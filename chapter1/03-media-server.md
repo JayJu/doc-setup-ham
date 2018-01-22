@@ -70,7 +70,22 @@
   $ sudo systemctl start kms.service
   $ sudo systemctl restart kms.service
   ``` 
-8. 로그 확인
+8. 데몬 limits 프로파일 변경
+  ```
+  $ ls /usr/lib/systemd/system/kms*
+  $ sudo mkdir -p /etc/systemd/system/kms.service.d
+  $ cd /etc/systemd/system/kms.service.d
+  $ sudo vi limits.conf
+  $ cat /etc/systemd/system/kms.service.d/limits.conf
+    [Service]
+    LimitNOFILE=50000
+  $ sudo systemctl daemon-reload
+  $ sudo systemctl restart kms
+  $ ps -ef |grep kurento
+  $ cat /proc/{프로세스ID}/limits.conf
+  ```
+
+9. 로그 확인
   * 로그파일 위치
     * ``` /var/log/kurento ```
     * ``` /etc/sysconfig/kms ```
