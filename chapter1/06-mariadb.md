@@ -51,7 +51,7 @@
     # Mandatory settings
     wsrep_on=ON
     wsrep_provider=/usr/lib64/galera/libgalera_smm.so
-    wsrep_cluster_address="gcomm://10.6.180.69,10.6.180.70,10.6.180.68"
+    wsrep_cluster_address="gcomm://10.6.xx.xx,10.6.xx.xx,10.6.xx.xx"
     binlog_format=row
     default_storage_engine=InnoDB
     innodb_autoinc_lock_mode=2
@@ -62,7 +62,7 @@
     # Galera Synchronization Configuration
     wsrep_sst_method=rsync
     # Galera Node Configuration
-    wsrep_node_address="10.6.180.69"
+    wsrep_node_address="10.6.xx.xx"
     wsrep_node_name="aehamdbp01"
     ```
     * mysqld 섹션에 로그경로 추가
@@ -135,7 +135,7 @@ mysqld  1349 mysql   26u  IPv4 8741444      0t0  TCP *:mysql (LISTEN)
   ```
   * wsrep_node_address 와 wsrep_node_name 값 추가할 노드 정보로 수정
   ```
-  wsrep_node_address="10.6.180.70"
+  wsrep_node_address="10.6.xx.xx"
   wsrep_node_name="aehamdbp02"
   ```
   * mysqld 섹션에 로그경로 추가
