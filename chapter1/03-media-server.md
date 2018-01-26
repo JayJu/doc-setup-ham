@@ -56,7 +56,14 @@
   stunServerAddress=74.125.23.127
   stunServerPort=19302
   ```
-6. 방화벽 포트 오픈
+6. 룸 설정
+  * 설정파일 위치: ``` /etc/kurento ```
+  * 단일 룸에 참여 가능한 Peer 수 수정
+  ```
+  $ sudo vi /etc/kurento/kurento.conf.json
+  "thread": 30
+  ```
+7. 방화벽 포트 오픈
   * firewall-cmd 설치
   ```
   $ sudo yum install firewalld
@@ -65,13 +72,13 @@
   * TCP/UDP 포트 오픈
     * [방화벽포트오픈](04-firewall.md) - 미디어서버 참조
 
-7. 서비스 시작/종료
+8. 서비스 시작/종료
   ``` 
   $ sudo systemctl enable kms.service
   $ sudo systemctl start kms.service
   $ sudo systemctl restart kms.service
   ``` 
-8. 데몬 limits 프로파일 변경
+9. 데몬 limits 프로파일 변경
   ```
   $ ls /usr/lib/systemd/system/kms*
   $ sudo mkdir -p /etc/systemd/system/kms.service.d
@@ -87,7 +94,7 @@
   $ lsof -p {프로세스ID} |wc -l
   ```
 
-9. 로그 확인
+10. 로그 확인
   * 로그파일 위치
     * ``` /var/log/kurento ```
     * ``` /etc/sysconfig/kms ```
