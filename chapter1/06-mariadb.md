@@ -10,7 +10,7 @@
   * [기본 프로그램 설치 및 사용자 생성](./default/00-etc.md)
 
 2. MariaDB 설치 (3 노드 모두)
-  * MariaDB repository 추가
+  * MariaDB repository 추가(10.1)
   ```
   # vi /etc/yum.repos.d/MariaDB10.1.repo
   ### 아래 내용 추가
@@ -22,14 +22,27 @@
   gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
   gpgcheck=1
   ```
+  
+  * MariaDB repository 추가(10.3)
+  ```
+  # vi /etc/yum.repos.d/MariaDB10.3.repo
+  ### 아래 내용 추가
+  # MariaDB 10.3 CentOS repository list - created 2018-08-23 09:17 UTC
+  # http://downloads.mariadb.org/mariadb/repositories/
+  [mariadb]
+  name = MariaDB
+  baseurl = http://yum.mariadb.org/10.3/centos7-amd64
+  gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+  gpgcheck=1
+  ```
+
   * DB 패키지설치(ham 계정, 클러스터 포함되어있음)
   ```
   # su - ham
-  $ sudo yum -y install mariadb-server
+  $ sudo yum -y install mariadb-server mariadb-client
   $ sudo systemctl enable mariadb
   $ sudo systemctl start mariadb
   $ sudo systemctl status mariadb
-  $ sudo systemctl stop mariadb
   $ su -
   # mysql_secure_installation
   ## Set root password? Y
