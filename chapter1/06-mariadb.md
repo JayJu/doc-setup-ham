@@ -126,8 +126,6 @@ mysqld  1349 mysql   26u  IPv4 8741444      0t0  TCP *:mysql (LISTEN)
   MariaDB [(none)]> grant all privileges on hamdb.* to 'ham'@'localhost';
   MariaDB [(none)]> grant all privileges on hamdb.* to 'ham'@'%';
   MariaDB [(none)]> flush privileges;
-
-출처: http://ora-sysdba.tistory.com/entry/MariaDB-Maria-DB-데이터베이스-생성-권한-부여-접속 [Welcome To Ora-SYSDBA]
   ```
 5. 방화벽 오픈
   * [방화벽포트오픈](04-firewall.md) - MariaDB 참조
