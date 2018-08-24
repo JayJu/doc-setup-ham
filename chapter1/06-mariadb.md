@@ -122,6 +122,8 @@ mysqld  1349 mysql   26u  IPv4 8741444      0t0  TCP *:mysql (LISTEN)
   ```
   * DB 생성
   ```
+  MariaDB [(none)]> create user 'ham'@'localhost' identified by '***';
+  MariaDB [(none)]> create user 'ham'@'%' identified by '***';
   MariaDB [(none)]> create database hamdb;
   MariaDB [(none)]> grant all privileges on hamdb.* to 'ham'@'localhost';
   MariaDB [(none)]> grant all privileges on hamdb.* to 'ham'@'%';
