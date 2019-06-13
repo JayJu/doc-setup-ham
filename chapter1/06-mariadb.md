@@ -69,7 +69,7 @@
     default_storage_engine=InnoDB
     innodb_autoinc_lock_mode=2
     # Allow server to accept connections on all interfaces.
-  bind-address=0.0.0.0
+    bind-address=0.0.0.0
     # Galera Cluster Configuration
     wsrep_cluster_name="hamcluster1"
     # Galera Synchronization Configuration
